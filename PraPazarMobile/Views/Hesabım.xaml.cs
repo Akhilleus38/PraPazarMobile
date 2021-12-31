@@ -13,8 +13,7 @@ namespace PraPazarMobile.Views
 	public partial class Hesabım : ContentPage
 	{
 		public Hesabım ()
-        {
-            var a = "";
+		{
 			InitializeComponent ();
 		}
 	}
