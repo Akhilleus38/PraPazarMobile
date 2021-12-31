@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PraPazarMobile.Views.Hesabım">
+    <Shell.TitleView>
+        <Image Source="PraLogo.png"
+               Margin="5"
+               Aspect="AspectFit"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand" />
+    </Shell.TitleView>
+
+
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" >
+
+            <Frame HorizontalOptions="FillAndExpand" Margin="10,10,10,0">
+                <Label Text="Kullanıcı Profili"></Label>
+
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                <Label Text="Müşteri Profili"></Label>
+
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                <Label Text="Anlık Bildirim Ayarlarım"></Label>
+
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                <Label Text="Şifremi Değiştir"></Label>
+
+            </Frame>
+            <Frame HorizontalOptions="FillAndExpand" Margin="10,0,10,0">
+                <Label Text="Çıkış"></Label>
+
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
