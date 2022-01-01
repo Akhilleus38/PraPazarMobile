@@ -17,6 +17,7 @@ namespace PraPazarMobile.Views
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+            //Test
 
         }
 
