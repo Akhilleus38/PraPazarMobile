@@ -21,7 +21,7 @@
 
 
     <ContentPage.Resources>
-        <ResourceDictionary>    
+        <ResourceDictionary>
 
             <Style x:Key="TitleTextStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource TextColor}" />
@@ -101,197 +101,236 @@
     <ContentPage.Content>
 
 
-<Grid>
-    <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="Auto" />
-    </Grid.RowDefinitions>
+        <Grid Margin="10,10,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="20*" />
+                <RowDefinition Height="60*" />
+            </Grid.RowDefinitions>
 
 
-            <StackLayout Grid.Row="0">
-        <Frame Margin="0,0,0,5" BackgroundColor="Transparent" HasShadow="False" Padding="10" HeightRequest="100">
-            <StackLayout Orientation="Vertical">
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="Gray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
-                        <Image Source="message.png" Aspect="AspectFit" ></Image>
+            <Grid Grid.Row="0">
 
-                    </Frame>
-                    <Frame BackgroundColor="Gray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
-                        <Image Source="inbox.png"></Image>
-                    </Frame>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" >
+                            <Frame CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
+                                <Image Source="message.png" Aspect="AspectFit" ></Image>
+                            </Frame>
+                            <BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="93,7,54,25"></BoxView>
+                            <Label Text="17" Margin="39,7,0,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        </Grid>
+                        <Frame Grid.Column="1" CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
+                            <Image Source="inbox.png"></Image>
+                        </Frame>
+                        <BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20"  Margin="93,7,54,25"></BoxView>
+                        <Label Grid.Column="1" Text="25" Margin="39,7,0,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                    </Grid>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand"  Padding="10"  HeightRequest="20" >
+                            <Image Source="kargo.png"  ></Image>
+                        </Frame>
+                        <BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="103,7,44,25"></BoxView>
+                        <Label Text="15" Margin="103,7,44,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        <Frame Grid.Column="1" CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
+                            <Image Source="bildirimbeyaz.png" ></Image>
+                        </Frame>
+                        <BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="90,7,58,25"></BoxView>
+                        <Label Grid.Column="1" Text="76" Margin="91,7,58,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+
+            <Grid  Grid.Row="1">
+                <StackLayout Spacing="0" Padding="0">
+
+                    <CarouselView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="Carousel" IndicatorView="IndicatorView" HeightRequest="100">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="0" Spacing="0" >
+                                    <Image x:Name="Textt" Source="{Binding Url}"  ></Image>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="IndicatorView"
+                   IndicatorColor="DarkGray"
+                   SelectedIndicatorColor="Gray"
+                   IndicatorSize="7"
+                   VerticalOptions="Center"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="Gray" HorizontalOptions="FillAndExpand"  Padding="10"  HeightRequest="20" >
-                        <Image Source="kargo.png"  ></Image>
-                    </Frame>
-                    <Frame BackgroundColor="Gray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
-                        <Image Source="bildirimbeyaz.png" ></Image>
-                    </Frame>
-                </StackLayout>
-            </StackLayout>
-
-        </Frame>
-    </StackLayout>
-
-
-
-<StackLayout Grid.Row="1" Margin="0,15,0,0">
-    <ScrollView>
-           
-            <StackLayout 
+            </Grid>
+            <Grid Grid.Row="2" Margin="0,0,0,0">
+                <ScrollView>
+                    <StackLayout 
                 BindableLayout.ItemsSource="{Binding Path=Items}"
                 Padding="0, 6, 0, 0">
 
 
 
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
-                        <xct:Expander 
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <xct:Expander 
                             ExpandAnimationEasing="{x:Static Easing.Linear}"
                             CollapseAnimationEasing="{x:Static Easing.Linear}"
                             IsExpanded="{Binding IsDetailVisible, Mode=TwoWay}">
-                            <xct:Expander.Header>
-                                <Grid 
+                                    <xct:Expander.Header>
+                                        <Grid 
                                     ColumnSpacing="0"
                                     RowSpacing="0"
                                     Style="{StaticResource ExpandeLayoutStyle}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <pancakeview:PancakeView
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <pancakeview:PancakeView
                                         Grid.Column="0"
                                         BackgroundColor="{Binding Color}"
                                         Style="{StaticResource CollpasedColorSytle}">
-                                        <pancakeview:PancakeView.Triggers>
-                                            <DataTrigger
+                                                <pancakeview:PancakeView.Triggers>
+                                                    <DataTrigger
                                                 TargetType="pancakeview:PancakeView"
                                                 Binding="{Binding IsDetailVisible}"
                                                 Value="True">
-                                                <Setter Property="HeightRequest" Value="54" />
-                                                <Setter Property="VerticalOptions" Value="End" />
-                                                <Setter Property="Style" Value="{StaticResource ExpandedColorSytle}" />
-                                            </DataTrigger>
-                                            <DataTrigger
+                                                        <Setter Property="HeightRequest" Value="54" />
+                                                        <Setter Property="VerticalOptions" Value="End" />
+                                                        <Setter Property="Style" Value="{StaticResource ExpandedColorSytle}" />
+                                                    </DataTrigger>
+                                                    <DataTrigger
                                                 TargetType="pancakeview:PancakeView"
                                                 Binding="{Binding IsDetailVisible}"
                                                 Value="False">
-                                                <Setter Property="Style" Value="{StaticResource CollpasedColorSytle}" />
-                                            </DataTrigger>
-                                        </pancakeview:PancakeView.Triggers>
-                                        <Image
-                                            Margin="7"
+                                                        <Setter Property="Style" Value="{StaticResource CollpasedColorSytle}" />
+                                                    </DataTrigger>
+                                                </pancakeview:PancakeView.Triggers>
+                                                <Image
+                                            Margin="10"
                                             Aspect="AspectFit"
                                             Source="{Binding Icon}"/>
-                                    </pancakeview:PancakeView>
-                                    <Label 
+                                            </pancakeview:PancakeView>
+                                            <Label 
                                         Grid.Column="1"
                                         Text="{Binding Name}"
                                         Style="{StaticResource ExpanderTitleTextStyle}"/>
-                                    <BoxView
+                                            <BoxView
                                         Grid.Column="0"
                                         Grid.ColumnSpan="2"
                                         Grid.Row="1"
-                                        HeightRequest="2"
-                                        BackgroundColor="Black"
-                                        Margin="0, 6, 0, 0"
+                                        HeightRequest="1"
+                                        BackgroundColor="LightGray"
+                                        Margin="0"
                                         IsVisible="{Binding IsDetailVisible, Converter={StaticResource InverseBoolConverter}}" />
-                                </Grid>
-                            </xct:Expander.Header>
-                            <Grid
+                                        </Grid>
+                                    </xct:Expander.Header>
+                                    <Grid
                                 ColumnSpacing="0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout 
                                     Grid.Column="1"
                                     BindableLayout.ItemsSource="{Binding Items}"
                                     Spacing="0">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid 
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid 
                                                 ColumnSpacing="0"
                                                 RowSpacing="0">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="*" />
-                                                    <ColumnDefinition Width="Auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*" />
-                                                    <RowDefinition Height="Auto" />
-                                                </Grid.RowDefinitions>
-                                                <pancakeview:PancakeView
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="Auto" />
+                                                        </Grid.RowDefinitions>
+                                                        <pancakeview:PancakeView
                                                      Grid.Column="0"
                                                      BackgroundColor="{Binding Source={RelativeSource AncestorType={x:Type models:ShoppingItem}}, Path=Color}"
                                                      Style="{StaticResource DetailColorSytle}">
-                                                    <pancakeview:PancakeView.Triggers>
-                                                        <DataTrigger
+                                                            <pancakeview:PancakeView.Triggers>
+                                                                <DataTrigger
                                                              TargetType="pancakeview:PancakeView"
                                                              Binding="{Binding IsLatest}"
                                                              Value="True">
-                                                            <Setter Property="Style" Value="{StaticResource LatestDetailColorSytle}" />
-                                                        </DataTrigger>
-                                                        <DataTrigger
+                                                                    <Setter Property="Style" Value="{StaticResource LatestDetailColorSytle}" />
+                                                                </DataTrigger>
+                                                                <DataTrigger
                                                              TargetType="pancakeview:PancakeView"
                                                              Binding="{Binding IsLatest}"
                                                              Value="False">
-                                                            <Setter Property="Style" Value="{StaticResource DetailColorSytle}" />
-                                                        </DataTrigger>
-                                                    </pancakeview:PancakeView.Triggers>
-                                                </pancakeview:PancakeView>
-                                                <Label
+                                                                    <Setter Property="Style" Value="{StaticResource DetailColorSytle}" />
+                                                                </DataTrigger>
+                                                            </pancakeview:PancakeView.Triggers>
+                                                        </pancakeview:PancakeView>
+                                                        <Label
                                                     Grid.Column="1"
                                                     Text="{Binding Name}"
                                                     Style="{StaticResource ExpanderDetailTextStyle}"/>
-                                                <Image
+                                                        <Image
                                                     Grid.Column="2"
                                                     Source="add.png"
                                                     Style="{StaticResource AddIconStyle}"/>
-                                                <Grid
+                                                        <Grid
                                                     Grid.Column="0"
                                                     Grid.ColumnSpan="3"
                                                     Grid.Row="1"
                                                     IsVisible="{Binding IsLatest}">
-                                                    <Grid.Triggers>
-                                                        <DataTrigger
+                                                            <Grid.Triggers>
+                                                                <DataTrigger
                                                             TargetType="Grid"
                                                             Binding="{Binding IsLatest}"
                                                             Value="True">
-                                                            <Setter Property="Margin" Value="0, 12, 0, 0" />
-                                                        </DataTrigger>
-                                                        <DataTrigger
+                                                                    <Setter Property="Margin" Value="0, 12, 0, 0" />
+                                                                </DataTrigger>
+                                                                <DataTrigger
                                                             TargetType="Grid"
                                                             Binding="{Binding IsLatest}"
                                                             Value="False">
-                                                            <Setter Property="Margin" Value="0" />
-                                                        </DataTrigger>
-                                                    </Grid.Triggers>
-                                                    <BoxView
+                                                                    <Setter Property="Margin" Value="0" />
+                                                                </DataTrigger>
+                                                            </Grid.Triggers>
+                                                            <BoxView
                                                         HeightRequest="2"
                                                         BackgroundColor="DarkRed" />
-                                                </Grid>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </Grid>
-                        </xct:Expander>
-                    </DataTemplate>
-                </BindableLayout.ItemTemplate>
-            </StackLayout>
+                                                        </Grid>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </Grid>
+                                </xct:Expander>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
 
 
 
-</ScrollView>
-    </StackLayout>
+                </ScrollView>
+            </Grid>
 
-          
+
 
 
         </Grid>

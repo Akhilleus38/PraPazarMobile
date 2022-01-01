@@ -1,4 +1,5 @@
-﻿    using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,5 +38,33 @@ namespace PraPazarMobile.Models
         public Color Color { get; set; }
         public bool Done { get; set; }
         public bool IsLatest { get; set; }
+    }
+
+    public class PraPazarSliderImageModel
+    {
+        public string ImageFileName { get; set; }
+    }
+    public class PraPazarSliderModel
+    {
+        [JsonProperty("Id", NullValueHandling = NullValueHandling.Ignore)]
+        public long? Id { get; set; }
+
+        [JsonProperty("SortOrder", NullValueHandling = NullValueHandling.Ignore)]
+        public long? SortOrder { get; set; }
+
+        [JsonProperty("FileName", NullValueHandling = NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+
+        [JsonProperty("Title", NullValueHandling = NullValueHandling.Ignore)]
+        public string Title { get; set; }
+
+        [JsonProperty("Alt", NullValueHandling = NullValueHandling.Ignore)]
+        public string Alt { get; set; }
+
+        [JsonProperty("Active", NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Active { get; set; }
+
+        [JsonProperty("Link")]
+        public Uri Link { get; set; }
     }
 }
