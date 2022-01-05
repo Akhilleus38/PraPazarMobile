@@ -178,4 +178,70 @@
   <ItemGroup>
     <BundleResource Include="Resources\bildirimbeyaz.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ggLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hbLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\n11Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\trendyolLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\okeyIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\okeyIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\carpi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\deleteIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\muhasebeyegonder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\muhasebe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kargola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\kargola2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\efatura.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\okeyy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\filters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\searchGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\filtersWhite.png" />
+  </ItemGroup>
 </Project>

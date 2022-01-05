@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             x:Class="PraPazarMobile.Views.OrdersPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView>
+
+                <StackLayout Orientation="Vertical" Padding="0,0,0,5" >
+
+
+                    <!--Başlık-->
+                    <Grid  Margin="0,20,0,5">
+                        <Image Source="back.png" HorizontalOptions="StartAndExpand" WidthRequest="20" HeightRequest="20" Margin="15,0,0,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Back_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label Text="Siparişler" TextColor="#4d4d4d" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+                    </Grid>
+
+
+                    <!--Arama Yeri ve Filitreleme Butonu-->
+                    <Grid HeightRequest="60" WidthRequest="200">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*" />
+                            <ColumnDefinition Width="20*" />
+                        </Grid.ColumnDefinitions>
+                        <Frame HasShadow="False" Margin="10,0,0,0" Padding="0"  CornerRadius="10" BorderColor="LightGray" >
+                            <SearchBar Placeholder="Sipariş No ile Ara..." VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></SearchBar>
+                        </Frame>
+                        <Frame Grid.Column="1" HasShadow="False" CornerRadius="10" Margin="0,0,10,0" BackgroundColor="LightSlateGray" BorderColor="LightGray"  >
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Filters_Label_Visible_Change_Tap"/>
+                            </Frame.GestureRecognizers>
+                            <Image Source="filtersWhite.png"></Image>
+                        </Frame>
+                    </Grid>
+
+
+                    <!--Filitreleme Katmanı-->
+                    <Frame HasShadow="False" Padding="0"  x:Name="FiltersLayout" IsVisible="False" BackgroundColor="Transparent" CornerRadius="10" BorderColor="Gray" Margin="10,0,10,0">
+                        <StackLayout HeightRequest="345" Margin="0,5,0,0">
+
+
+                            <StackLayout Orientation="Vertical" Spacing="0" Margin="10,5,10,10" >
+
+                                <Frame BackgroundColor="White"  BorderColor="Gray" CornerRadius="5" Padding="0" HasShadow="False" >
+                                    <SearchBar 
+                        x:Name="ColorSearchBar2"
+                        Margin="0"
+                        Placeholder="Müşteri ile Ara..."
+                        CancelButtonColor="DarkRed"                      
+                        BackgroundColor="Transparent"
+                        SearchButtonPressed="ColorSearchBar_SearchButtonPressed"
+                        TextChanged="ColorSearchBar_TextChanged_2"/>
+                                </Frame>
+
+
+
+                                <StackLayout Orientation="Vertical" Spacing="0" Margin="0,10,0,1" >
+
+                                    <Frame HasShadow="False" BackgroundColor="White" BorderColor="Gray" CornerRadius="5" Padding="0" >
+                                        <StackLayout Orientation="Horizontal" Spacing="0">
+                                            <Image Source="searchGray" WidthRequest="20" Margin="21,0,0,0"></Image>
+                                            <Picker x:Name="Store" Title="Mağaza ile Ara..." HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" Margin="10,0,10,0" ></Picker>
+                                        </StackLayout>
+                                    </Frame>
+
+                                </StackLayout>
+
+
+                                <StackLayout Margin="0,5,0,0" Orientation="Horizontal">
+                                    <Label Text="İlk Tarih" HorizontalOptions="StartAndExpand" FontSize="Medium" FontAttributes="Bold"></Label>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,0,0,0" Orientation="Horizontal">
+                                    <Frame HasShadow="False" BackgroundColor="White" BorderColor="Gray" HorizontalOptions="FillAndExpand" CornerRadius="5" Padding="2" >
+                                        
+                                        <DatePicker
+                                    HorizontalOptions="Center" 
+                                    Format="d"                                    
+                                    x:Name="MainDatePicker">
+                                        </DatePicker>
+                                    </Frame>
+                                    <Frame HasShadow="False" BackgroundColor="White" BorderColor="Gray" CornerRadius="5" HorizontalOptions="FillAndExpand" Padding="2">
+                                        <TimePicker  Margin="10,0,0,0" HorizontalOptions="Center" x:Name="SearchTPicker" Format="t"/>
+                                    </Frame>
+                                </StackLayout>
+
+
+
+                                <StackLayout Margin="0,5,0,0" Orientation="Horizontal">
+                                    <Label Text="Son Tarih" HorizontalOptions="StartAndExpand" FontSize="Medium" FontAttributes="Bold"></Label>
+                                </StackLayout>
+
+
+
+                                <StackLayout Margin="0,2,0,10" Orientation="Horizontal">
+                                    <Frame HasShadow="False" BackgroundColor="White" BorderColor="Gray" HorizontalOptions="FillAndExpand" CornerRadius="5" Padding="2" >
+                                        
+                                        <DatePicker
+                                HorizontalOptions="Center" 
+                                Format="d"                                    
+                                x:Name="MainDatePicker2"
+                               >
+                                        </DatePicker>
+                                    </Frame>
+                                    <Frame HasShadow="False" BackgroundColor="White" BorderColor="Gray" CornerRadius="5" HorizontalOptions="FillAndExpand" Padding="2">
+                                        <TimePicker  Margin="10,0,0,0" HorizontalOptions="Center" x:Name="MainTPicker"  Format="t"/>
+                                    </Frame>
+                                </StackLayout>
+                                <StackLayout Margin="0,2,0,0" >
+                                    <Frame BackgroundColor="LightSlateGray" HasShadow="False" Padding="5" CornerRadius="5" >
+                                        <Image Source="searchWhite.png" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--Listeleme Katmanı-->
+                    <StackLayout>
+
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                       
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                        <Frame BorderColor="LightGray" HasShadow="False" Padding="0" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                            <StackLayout Margin="5"  Orientation="Horizontal">
+                                <Image Source="ggLogo.png" WidthRequest="45" VerticalOptions="CenterAndExpand"></Image>
+                                <StackLayout Spacing="0" Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label MaxLines="1" LineBreakMode="TailTruncation">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span FontAttributes="Bold" Text="HALİL YAPRAK - [ARİFE LAYIK]" TextColor="#4d4d4d" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="TESTMAĞAZA" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text=" - " TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                        <Label Text="03.01.2022  16:28" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="225549338-251840361" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="96,88 ₺" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text=" - " FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                                        <Label Text="Onaylandı" FontAttributes="Bold" TextColor="green" VerticalOptions="Center"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OrderDetail_Tapped" NumberOfTapsRequired="1" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                    </StackLayout>
+
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

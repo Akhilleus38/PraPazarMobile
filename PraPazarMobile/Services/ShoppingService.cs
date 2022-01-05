@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using PraPazarMobile.Models;
+using PraPazarMobile.Views;
 using Xamarin.Forms;
 
 namespace PraPazarMobile.Services
@@ -30,29 +31,24 @@ namespace PraPazarMobile.Services
         {
             return new List<ShoppingItem>
             {
-                new ShoppingItem { Name = "Grafikler", Icon = "chartss.png", Color = Color.Gray,
+                new ShoppingItem { Name = "Grafikler", Icon = "chartss.png", Color = Color.FromRgb(77,77,77),
                     Items = new List<ShoppingDetailItem>
                     {
-                        new ShoppingDetailItem { Name = "Dashboard" },
-                        new ShoppingDetailItem { Name = "Günün Analizi" },
-                        new ShoppingDetailItem { Name = "Ürün Analizi", IsLatest = true },
+                        new ShoppingDetailItem { Name = "Dashboard" , Page = new Hesabım()},
+                        new ShoppingDetailItem { Name = "Günün Analizi", Page = new Hesabım()},
+                        new ShoppingDetailItem { Name = "Ürün Analizi", IsLatest = true, Page = new Hesabım() },
                     } },
                 new ShoppingItem { Name = "Siparişler", Icon = "inbox.png", Color = Color.Green,
                     Items = new List<ShoppingDetailItem>
                     {
-                        new ShoppingDetailItem { Name = "Siparişleri Listele" },
-                        new ShoppingDetailItem { Name = "Siparişleri Onayla" },
-                        new ShoppingDetailItem { Name = "E-Faturaya Gönder" },
-                        new ShoppingDetailItem { Name = "Muhasebeye Gönder" },
-                        new ShoppingDetailItem { Name = "Sipariş Detay" },
-                        new ShoppingDetailItem { Name = "Sipariş Silme", IsLatest = true },
+                        new ShoppingDetailItem { Name = "Siparişleri Listele" , Page = new OrdersPage() , IsLatest = true},
                     } },
                 new ShoppingItem { Name = "Ürünler", Icon = "urunler.png", Color = Color.DodgerBlue,
                     Items = new List<ShoppingDetailItem>
                     {
-                        new ShoppingDetailItem { Name = "Ürünleri Listele" },
-                        new ShoppingDetailItem { Name = "Ürünleri İçe Aktar" },
-                        new ShoppingDetailItem { Name = "Ürünleri Dışa Aktar", IsLatest = true },
+                        new ShoppingDetailItem { Name = "Ürünleri Listele" , Page = new Hesabım()},
+                        new ShoppingDetailItem { Name = "Ürünleri İçe Aktar" , Page = new Hesabım()},
+                        new ShoppingDetailItem { Name = "Ürünleri Dışa Aktar", IsLatest = true , Page = new Hesabım()},
                     } },
 
 
@@ -77,8 +73,8 @@ namespace PraPazarMobile.Services
                         var model = JsonConvert.DeserializeObject<List<PraPazarSliderModel>>(result);
                         if (model != null && model.Any())
                         {
-                            sliderList.AddRange(model.Select(a => 
-                                new PraPazarSliderImageModel(){ImageFileName = $"https://prapazar.com/uploads/praPazarAdvertisements/images/{a.FileName}"}));
+                            sliderList.AddRange(model.Select(a =>
+                                new PraPazarSliderImageModel() { ImageFileName = $"https://prapazar.com/uploads/praPazarAdvertisements/images/{a.FileName}" }));
                         }
                     }
 
@@ -93,4 +89,3 @@ namespace PraPazarMobile.Services
         }
     }
 }
-    

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Onay Bekleyen Siparişler"
+             x:Class="PraPazarMobile.Views.PendingOrders">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" >
+            <Frame BackgroundColor="Gray" CornerRadius="0">
+                <Label TextColor="White" Text="Toplam 4 adet onay bekleyen siparişiniz bulunmaktadır." FontSize="Medium"></Label>
+            </Frame>
+
+
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,10,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Sipariş 1" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Sipariş 2" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Sipariş 3" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+
+                    <Label Text="Sipariş 4" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                  
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -34,10 +34,12 @@ namespace PraPazarMobile.Models
 
     public class ShoppingDetailItem
     {
+        public ContentPage Page { get; set; }
         public string Name { get; set; }
         public Color Color { get; set; }
         public bool Done { get; set; }
         public bool IsLatest { get; set; }
+
     }
 
     public class PraPazarSliderImageModel

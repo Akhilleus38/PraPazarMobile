@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Mesajlar"
+             x:Class="PraPazarMobile.Views.Messages">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" >
+<Frame BackgroundColor="Gray" CornerRadius="0">
+    <Label TextColor="White" Text="Toplam 54 adet işlem bekleyen mesajınız bulunmaktadır." FontSize="Medium"></Label>
+</Frame>
+
+
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,10,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="trendyolLogo.png" WidthRequest="30" HeightRequest="30"></Image>
+                    <Label Text="Trendyol Mesajlarım" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                    <Label TextColor="DarkOrange" FontSize="Large" Text="20" FontAttributes="Bold" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="n11Logo.png"  WidthRequest="30" HeightRequest="30"></Image>
+                    <Label Text="N11 Mesajlarım" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                    <Label TextColor="DarkOrange" FontSize="Large" Text="14" FontAttributes="Bold" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="hbLogo.png"  WidthRequest="30" HeightRequest="30"></Image>
+                    <Label Text="HepsiBurada Mesajlarım" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                    <Label TextColor="DarkOrange" FontSize="Large" Text="17" FontAttributes="Bold" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+
+            </Frame>
+            <Frame BorderColor="Gray" HasShadow="False" HorizontalOptions="FillAndExpand" Margin="10,2,10,0">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="ggLogo.png"  WidthRequest="30" HeightRequest="30"></Image>
+                    <Label Text="GittiGidiyor Mesajlarım" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                    <Label TextColor="DarkOrange" FontSize="Large" Text="3" FontAttributes="Bold" HorizontalOptions="EndAndExpand"></Label>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

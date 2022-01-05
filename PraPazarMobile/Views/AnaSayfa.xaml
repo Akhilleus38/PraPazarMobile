@@ -99,18 +99,12 @@
 
 
     <ContentPage.Content>
-
-
         <Grid Margin="10,10,10,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20*" />
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="60*" />
+                <RowDefinition Height="80*" />
             </Grid.RowDefinitions>
-
-
-            <Grid Grid.Row="0">
-
+            <Grid Padding="2" Grid.Row="0">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -123,40 +117,55 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0" >
-                            <Frame CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Go_Messages_Tapped"/>
+                            </Grid.GestureRecognizers>
+                            <Frame CornerRadius="5" BackgroundColor="DimGray" HorizontalOptions="FillAndExpand" Padding="11" >
                                 <Image Source="message.png" Aspect="AspectFit" ></Image>
                             </Frame>
-                            <BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="93,7,54,25"></BoxView>
-                            <Label Text="17" Margin="39,7,0,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                            <!--<BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="93,7,54,25"></BoxView>-->
+                            <Image Source="circle2.png" HeightRequest="1"  WidthRequest="1" Margin="30,7,0,23"></Image>
+                            <Label Text="54" FontSize="Micro"  Margin="31,8,0,23" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"></Label>
                         </Grid>
-                        <Frame Grid.Column="1" CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
+                        <Grid Grid.Column="1">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="Go_PendingOrders_Tapped"/>
+                            </Grid.GestureRecognizers>
+                            <Frame  CornerRadius="5" BackgroundColor="DimGray" HorizontalOptions="FillAndExpand" Padding="13" HeightRequest="40" >
                             <Image Source="inbox.png"></Image>
                         </Frame>
-                        <BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20"  Margin="93,7,54,25"></BoxView>
-                        <Label Grid.Column="1" Text="25" Margin="39,7,0,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        <!--<BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20"  Margin="93,7,54,25"></BoxView>-->
+                            <Image Source="circle2.png" HeightRequest="1"  WidthRequest="1" Margin="30,7,0,23"></Image>
+                            <Label Text="4" Margin="31,7,0,23" TextColor="White" FontAttributes="Bold" FontSize="Micro" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        </Grid>
                     </Grid>
-
                     <Grid Grid.Row="1" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Frame CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand"  Padding="10"  HeightRequest="20" >
+                        <Frame CornerRadius="5" BackgroundColor="DimGray" HorizontalOptions="FillAndExpand"  Padding="15"   >
                             <Image Source="kargo.png"  ></Image>
                         </Frame>
-                        <BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="103,7,44,25"></BoxView>
-                        <Label Text="15" Margin="103,7,44,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                        <Frame Grid.Column="1" CornerRadius="5" BackgroundColor="#7a273f" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
-                            <Image Source="bildirimbeyaz.png" ></Image>
+                        <!--<BoxView BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="103,7,44,25"></BoxView>-->
+                        <Image Source="circle2.png" HeightRequest="1"  WidthRequest="1" Margin="40,7,0,23"></Image>
+                        <Label Text="3"  Margin="41,7,0,23" TextColor="White" FontAttributes="Bold" FontSize="Micro" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        <Grid Grid.Column="1">
+                            <Frame CornerRadius="5" BackgroundColor="DimGray" HorizontalOptions="FillAndExpand" Padding="13"  >
+                        <Image Source="bildirimbeyaz.png" ></Image>
                         </Frame>
-                        <BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="90,7,58,25"></BoxView>
-                        <Label Grid.Column="1" Text="76" Margin="91,7,58,25" TextColor="#7a273f" FontAttributes="Bold" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        <!--<BoxView Grid.Column="1" BackgroundColor="Orange" HeightRequest="1" WidthRequest="1" CornerRadius="20" Margin="90,7,58,25"></BoxView>-->
+                        <Image Source="circle2.png" HeightRequest="1"  WidthRequest="1" Margin="31,7,0,23"></Image>
+                            <Label Text="76" Margin="32,7,0,23" TextColor="White" FontAttributes="Bold" FontSize="Micro" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                        </Grid>
                     </Grid>
                 </Grid>
 
             </Grid>
 
-            <Grid  Grid.Row="1">
+            <!--<Grid  Grid.Row="1">
                 <StackLayout Spacing="0" Padding="0">
 
                     <CarouselView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="Carousel" IndicatorView="IndicatorView" HeightRequest="100">
@@ -174,14 +183,12 @@
                    IndicatorSize="7"
                    VerticalOptions="Center"/>
                 </StackLayout>
-            </Grid>
-            <Grid Grid.Row="2" Margin="0,0,0,0">
+            </Grid>-->
+            <Grid Grid.Row="1" Margin="0,0,0,0">
                 <ScrollView>
                     <StackLayout 
                 BindableLayout.ItemsSource="{Binding Path=Items}"
                 Padding="0, 6, 0, 0">
-
-
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
@@ -253,9 +260,8 @@
                                     Spacing="0">
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
-                                                    <Grid 
-                                                ColumnSpacing="0"
-                                                RowSpacing="0">
+                                                    <Grid ColumnSpacing="0"
+                                                          RowSpacing="0">
                                                         <Grid.ColumnDefinitions>
                                                             <ColumnDefinition Width="Auto" />
                                                             <ColumnDefinition Width="*" />
@@ -287,11 +293,21 @@
                                                         <Label
                                                     Grid.Column="1"
                                                     Text="{Binding Name}"
-                                                    Style="{StaticResource ExpanderDetailTextStyle}"/>
+                                                    Style="{StaticResource ExpanderDetailTextStyle}">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped">
+                                                                </TapGestureRecognizer>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
                                                         <Image
                                                     Grid.Column="2"
-                                                    Source="add.png"
-                                                    Style="{StaticResource AddIconStyle}"/>
+                                                    Source="ok.png"
+                                                    Style="{StaticResource AddIconStyle}">
+                                                            <Image.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped">
+                                                                </TapGestureRecognizer>
+                                                            </Image.GestureRecognizers>
+                                                        </Image>
                                                         <Grid
                                                     Grid.Column="0"
                                                     Grid.ColumnSpan="3"
@@ -313,7 +329,7 @@
                                                             </Grid.Triggers>
                                                             <BoxView
                                                         HeightRequest="2"
-                                                        BackgroundColor="DarkRed" />
+                                                        BackgroundColor="#7a273f" />
                                                         </Grid>
                                                     </Grid>
                                                 </DataTemplate>
@@ -324,25 +340,11 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-
-
-
                 </ScrollView>
             </Grid>
-
-
-
-
         </Grid>
-
     </ContentPage.Content>
-
-
-
-
 </ContentPage>
-
-
 
 
 <!--<StackLayout>
@@ -351,7 +353,6 @@
             <StackLayout Orientation="Horizontal">
                 <Frame BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
                     <Image Source="message.png" Aspect="AspectFit" ></Image>
-
                 </Frame>
                 <Frame BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" Padding="10" HeightRequest="40" >
                     <Image Source="inbox.png"></Image>
@@ -366,6 +367,5 @@
                 </Frame>
             </StackLayout>
         </StackLayout>
-
     </Frame>
 </StackLayout>-->

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Sipariş Detayı"
+             x:Class="PraPazarMobile.Views.OrderDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="0,0,0,10"  Orientation="Vertical">
+                <Frame BackgroundColor="Gray" Padding="0" HeightRequest="35" CornerRadius="0">
+                    <Label Text="Sipariş Hakkında" TextColor="White"  HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" FontSize="Large"></Label>
+                </Frame>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Margin="10,0,0,0" Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Mağaza:" FontAttributes="Bold"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="TESTMAĞAZA"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Sip. Tarih:"  FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="03.01.2022  16:28"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Sip. No:"  FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="225549338-251840361"  TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label MaxLines="1"  LineBreakMode="TailTruncation">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span FontAttributes="Bold"  Text="Müşteri:" TextColor="#4d4d4d"/>
+                                        <Span Text=" "/>
+                                        <Span Text="HALİL YAPRAK - [ARİFE LAYIK]"  TextColor="#4d4d4d" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Muhasebe Sip. No:" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="-" TextColor="#4d4d4d"  VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Ürün Toplam:" FontAttributes="Bold"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="96,88 ₺" TextColor="#4d4d4d"  VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Hizmet Bedeli:" FontAttributes="Bold"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="0,00 ₺" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Toplam:" FontAttributes="Bold"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="96,88 ₺" TextColor="#4d4d4d"  VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Komisyon:" FontAttributes="Bold"  TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="19,38 ₺" TextColor="#4d4d4d" VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Durum:" FontAttributes="Bold" TextColor="#4d4d4d" VerticalOptions="CenterAndExpand"></Label>
+                            <Label Text="Onaylandı" TextColor="green"  VerticalOptions="Center"></Label>
+
+                        </StackLayout>
+                    </StackLayout>
+                    <Image Source="ggLogo.png" WidthRequest="60" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" Margin="0,190,0,0"></Image>
+
+                </StackLayout>
+
+
+                <Frame BackgroundColor="Gray" Padding="0" HeightRequest="35" CornerRadius="0">
+                    <Label Text="İşlemler" TextColor="White" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" FontSize="Large"></Label>
+                </Frame>
+
+                <!--<StackLayout Margin="5"  Orientation="Horizontal">
+                <Button TextColor="White" Text="Siparişi Onayla"></Button>
+                <Button TextColor="White" Text="E-Faturaya Gönder" ></Button>
+            </StackLayout>
+            <StackLayout Margin="5" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Button TextColor="White" Text="Muhasebeye Gönder" ></Button>
+                <Button TextColor="White" Text="Anlaşmalı Kargo" ></Button>
+            </StackLayout>
+            <StackLayout Margin="5" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                <Button TextColor="White" Text="Sipariş İptal" ></Button>
+                <Button TextColor="White" Text="Siparişi Sil" ></Button>
+            </StackLayout>-->
+
+
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Margin="6,0,6,0" Orientation="Horizontal">
+                        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="SlateGray" WidthRequest="120">
+                            <StackLayout>
+                                <Image Source="okeyy.png" Margin="0,5,0,0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="27"></Image>
+                                <Label TextColor="White" Text="Siparişi Onayla" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="LightSlateGray" >
+                            <StackLayout>
+                                <Image Source="efatura.png" Margin="0,8,0,0"  WidthRequest="17"></Image>
+                                <Label TextColor="White" Text="E-Fturaya Gönder" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Margin="6,0,6,0" Orientation="Horizontal">
+                        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="LightSlateGray">
+                            <StackLayout>
+                                <Image Source="muhasebe.png" Margin="0,6,0,0"  WidthRequest="24"></Image>
+                                <Label TextColor="White" Text="Muhasebeye Gönder" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" WidthRequest="115" BackgroundColor="LightSlateGray">
+                            <StackLayout>
+                                <Image Source="kargola2.png"  Margin="0,7,0,0"  WidthRequest="37"></Image>
+                                <Label TextColor="White" Text="Kargola" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Margin="6,0,6,0" Orientation="Horizontal">
+                        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="LightSlateGray">
+                            <StackLayout>
+                                <Image Source="carpi.png" Margin="0,7,0,0"  WidthRequest="22"></Image>
+                                <Label TextColor="White" Text="Siparişi İptal Et" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                        <Grid HorizontalOptions="FillAndExpand" WidthRequest="80" BackgroundColor="LightSlateGray">
+                            <StackLayout>
+                                <Image Source="delete.png" Margin="0,5,0,0"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="24"></Image>
+                                <Label TextColor="White" Text="Siparişi Sil" HorizontalOptions="CenterAndExpand" Margin="0,0,0,5"></Label>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
